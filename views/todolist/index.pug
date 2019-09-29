@@ -2,4 +2,15 @@ extends ../commons/todolist.common.pug
 
 block content
 	.container
-		h1.text-center Todo list
+		h1.text-center.my-4 Todo list
+		div
+			table.table
+				tr
+					th To do
+					th Date created
+					th Status
+				each todo in todoList
+					tr
+						td= todo.content
+						td= todo.date.toLocaleString()
+						td= todo.isFinish ? 'Finish' : 'Processing'
